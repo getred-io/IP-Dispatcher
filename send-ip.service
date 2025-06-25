@@ -1,0 +1,27 @@
+# Inhalt für /etc/systemd/system/send-ip.service
+
+[Unit]
+# Eine einfache Beschreibung des Services, sichtbar in Status-Meldungen.
+Description=Send IP address via Email after network is up
+
+# Diese Direktiven weisen systemd an, zu warten, bis das Netzwerk 
+# als "online" gilt. Dies ist der Schlüssel für die Zuverlässigkeit.
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+# 'simple' bedeutet, systemd betrachtet den Service als gestartet, 
+# sobald der ExecStart-Befehl ausgeführt wurde.
+Type=simple
+
+# Der Befehl, der ausgeführt werden soll. Volle Pfade sind Best Practice.
+ExecStart=/usr/bin/python3 /home/pi/send_ip.py
+
+# Das Skript wird als Benutzer 'pi' ausgeführt, nicht als 'root'.
+# Dies ist eine wichtige Sicherheitspraxis.
+User=pi
+
+[Install]
+# Definiert, dass dieser Service beim Erreichen des "multi-user.target" 
+# (normaler Systembetrieb mit Netzwerk) gestartet werden soll.
+WantedBy=multi-user.target
