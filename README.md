@@ -1,3 +1,5 @@
+Ich wollte meinen PAM-Crawler auf einem Raspberry Pi in Betrieb nehmen, bin aber an den Netzwerkrestriktionen bei uns in der Firma gescheitert – IP-Ermittlung und Scanner sind komplett blockiert. Deshalb habe ich dieses Skript entwickelt, das die IP Adresse des Pis nach Start automatisch an meine Email Adresse versendet.
+
 # Anleitung: Raspberry Pi IP-Adresse bei Systemstart per E-Mail senden
 
 Dieses Tutorial beschreibt, wie Sie einen Raspberry Pi so einrichten, dass er nach jedem Start automatisch seine aktuelle IP-Adresse per E-Mail versendet. Dies ist besonders nützlich für den "Headless"-Betrieb (ohne Monitor), um sich per SSH verbinden zu können.
